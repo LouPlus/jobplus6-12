@@ -15,11 +15,11 @@ class Base(db.Model):
                            default=datetime.utcnow,
                            onupdate=datetime.utcnow)
 
-    user_job = db.Table(
-        'user_job',
-        db.Column('user_id', db.Integer, db.ForeignKey('user.id', ondelete='CASCADE')),
-        db.Column('job_id', db.Integer, db.ForeignKey('job.id', ondelete='CASCADE'))
-    )
+    # user_job = db.Table(
+    #     'user_job',
+    #     db.Column('user_id', db.Integer, db.ForeignKey('user.id', ondelete='CASCADE')),
+    #     db.Column('job_id', db.Integer, db.ForeignKey('job.id', ondelete='CASCADE'))
+    # )
 
 
 class User(Base, UserMixin):
@@ -39,7 +39,7 @@ class User(Base, UserMixin):
     work_years = db.Column(db.SmallInteger)
     role = db.Column(db.SmallInteger, default=ROLE_USER)
     resume = db.relationship('Resume', uselist=False)
-    collect_jobs = db.relationship('Job', secondary=user_job)
+    # collect_jobs = db.relationship('Job', secondary=user_job)
     resume_url = db.Column(db.String(64))
     # 企业用户详情
     detail = db.relationship('CompanyDetail', uselist=False)
