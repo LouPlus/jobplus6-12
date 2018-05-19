@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width-device-width" />
-      <title>{% block title %}Louplus{% endblock %}</title>
+      {% block head_css %}
+      <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+      <link rel="stylesheet" href="static/main.css">
+      {% endblock %}
+      <title>{% block title %}jobplus{% endblock %}</title>
     </head>
     <body>
+    	<nav class="navbar navbar-inverse" role="navigation">
+		  <div class="container-fluid">
+    	  <div class="navbar-header">
+        	<a class="navbar-brand" href="/">Home</a>
+    	  </div>
+    	  <div>
+        	<ul class="nav navbar-nav">
+              <li><a href="/">Jobs</a></li>
+              <li><a href="/">Companies</a></li>
+            </ul>
+             <ul class="nav navbar-nav navbar-right">
+             	<li><a href="/">Company Register</a>
+             	</li>
+              	<li><a href="/">Jobseeker Register</a></li>
+              	<li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+    	  </div>
+    	  </div>
+		 </nav>
     {% block body %}{% endblock %}
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
