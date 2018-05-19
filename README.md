@@ -6,7 +6,6 @@ LouPlus Team 12 https://www.shiyanlou.com/louplus/python
 
 * [LouPlus](https://github.com/LouPlus)
 * [GeekWYF](https://github.com/GeekWYF)
-
 * [C](https://github.com/sillysilly)
 * [MingGeng](https://github.com/MingGeng)
 * [kimaprikose](https://github.com/fs2546)
