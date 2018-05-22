@@ -15,11 +15,13 @@ class Base(db.Model):
                            default=datetime.utcnow,
                            onupdate=datetime.utcnow)
 
-    # user_job = db.Table(
-    #     'user_job',
-    #     db.Column('user_id', db.Integer, db.ForeignKey('user.id', ondelete='CASCADE')),
-    #     db.Column('job_id', db.Integer, db.ForeignKey('job.id', ondelete='CASCADE'))
-    # )
+
+
+user_job = db.Table(
+        'user_job',
+        db.Column('user_id', db.Integer, db.ForeignKey('user.id', ondelete='CASCADE')),
+        db.Column('job_id', db.Integer, db.ForeignKey('job.id', ondelete='CASCADE'))
+    )
 
 
 class User(Base, UserMixin):
@@ -117,7 +119,7 @@ class EduExperience(Experience):
     resume = db.relationship('Resume', uselist=False)
 
 
-class ProjectExperice(Experience):
+class ProjectExperience(Experience):
     __tablename__ = 'preject_experience'
 
     name = db.Column(db.String(32), nullable=False)
@@ -129,8 +131,8 @@ class ProjectExperice(Experience):
     resume = db.relationship('Resume', uselist=False)
 
 
-class Company(Base):
-    __tablename__ = 'company'
+class CompanyDetail(Base):
+    __tablename__ = 'company_detail'
 
     id = db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String(64), nullable=False, index=True, unique=True)
@@ -173,8 +175,8 @@ class Job(Base):
     is_fulltime = db.Column(db.Boolean, default=True)
     # 是否在招聘
     is_open = db.Column(db.Boolean, default=True)
-    company_id = db.Column(db.Integer, db.ForeignKey('company.id', ondelete='CASCADE'))
-    company = db.relationship('company', uselist=False)
+    company_id = db.Column(db.Integer, db.ForeignKey('company_detail.id', ondelete='CASCADE'))
+    company = db.relationship('company_detail', uselist=False)
     views_count = db.Column(db.Integer, default=0)
 
     def __repr__(self):

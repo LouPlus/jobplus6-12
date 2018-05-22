@@ -14,7 +14,7 @@ class DevelopmentConfig(BaseConfig):
     PORT = '3306'
     DATABASE = 'jobplus'
     USERNAME = 'root'
-    PASSWORD = ' '
+    PASSWORD = '19890329'
 
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{host}:{port}/{db}?charset=utf8mb4".format(username=USERNAME,
                                                                                                password=PASSWORD,
