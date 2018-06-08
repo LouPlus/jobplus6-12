@@ -5,7 +5,7 @@ from flask_login import login_user, logout_user, login_required
 from jobplus.models import User
 from jobplus.forms import LoginForm
 
-front = Blueprint('front', __name__, url_prefix='/')
+front = Blueprint('front', __name__)
 
 @front.route('/')
 def index():
