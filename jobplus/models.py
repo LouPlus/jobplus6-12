@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask_sqlalchemy import SQLAlchemy 
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -16,7 +16,7 @@ class Base(db.Model):
 
 
 user_job = db.Table(
-        'user_job', 
+        'user_job',
         db.Column('user_id', db.Integer, db.ForeignKey('user.id', ondelete='CASCADE')),
         db.Column('job_id', db.Integer, db.ForeignKey('job.id', ondelete='CASCADE'))
     )
@@ -57,7 +57,7 @@ class User(Base, UserMixin):
     def is_admin(self):
         return self.role == self.ROLE_ADMIN
 
-    @property 
+    @property
     def is_company(self):
         return self.role == self.ROLE_COMPANY
 
